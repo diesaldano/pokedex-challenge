@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;700&display=swap');
+
+.card-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 99%;
+    height: 98%;
+    padding: 0;
+    margin: 0;
+    background-color: #F7F7F7;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.graphic-information {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    height: 100%;
+    padding: 0;
+    margin: auto;
+}
+
+.pragraph-info {
+    font-size: .7em;
+    font-weight: 200;
+    text-align: justify;
+    padding:  0px 10px;
+}
+
+.about {
+    padding: .5em;
+}
+
+.separator {
+    width: 1px;
+    height: 50px !important;
+    background-color: #D3D3D3;
+    margin: .5em 0;
+}
+
+.box-info {
+    font-weight: 400;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #666666;
+}
+
+.box-text {
+    font-size: .7em;
+    font-weight: 200;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #212121;
+}
+
+.box-title {
+    font-size: .7em;
+    font-weight: 500;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #212121;
+}
+
+.power-description {
+    font-size: .8em;
+    font-weight: 500;
+    font-family: poppins;
+    color: #212121;
+}
