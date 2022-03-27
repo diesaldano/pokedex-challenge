@@ -1,17 +1,25 @@
 import React from "react";
 import "./SearchPokemon.css";
+import { PokemonContext } from '../../Context/';
+
 
 function SearchPokemon(){
-    const [search, setSearch] = React.useState("");
+    const { searchPokemon, setSearchValue } = React.useState(PokemonContext);
 
-    const onSearchChange = (event) => {
-        setSearch(event.target.value);
+    const onSearchChange = (e) => {
+        console.log(e.target.value)
+        setSearchValue(e.target.value);
     }
-        return (
-        <>
-            <input className="search-pokemon" value={search} onChange={onSearchChange} type="text" placeholder="Search Pokemon" />
-            <p>{search}</p>
-        </>
+    return (
+        <div>
+            <input className="search-pokemon" 
+                value={searchPokemon} 
+                onChange={onSearchChange} 
+                type="text" 
+                placeholder="Search Pokemon" 
+            />
+            <p>{searchPokemon}</p>
+        </div>
     )
 }
 
