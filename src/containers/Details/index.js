@@ -1,25 +1,42 @@
 import React from "react";
+import { useParams } from 'react-router-dom'
 import "./Details.css";
 import CardDescription from '../../components/CardDescription';
 import { BsArrowLeft } from "react-icons/bs";
+import { PokemonContext } from '../../Context/index';
 
+function Details() {
+    const [pokemon, setPokemon] = React.useState({});
+    const { name } = useParams();
+    const {
+		searchedPokemon,
+	} = React.useContext(PokemonContext);
 
-function Details(){
+    React.useEffect(() => { 
+        const fetchData  = async () => {
+            try{
+                const selected = searchedPokemon.find(pokemon => pokemon.name === name);
+                setPokemon(selected);
+            } catch(error){
+                console.log(error);
+            }
+        }
+        fetchData();
+    }, [name])
+
     return(
-        <div className="details-container" style={{ backgroundColor: '#F57D31' }}>
+        <div className="details-container" style={{ backgroundColor: pokemon.color }}>
             <div className="first">
-                <div className="header">
+                <div className="header-details">
                     <div className="brand"> 
                         <span className="icon"><BsArrowLeft/></span>
-                        <h5 className="tittle">Charmander</h5>
+                        <h5 className="tittle"> {pokemon.name}</h5>
                     </div>
-                    <span className="number">#004</span> 
+                    <span className="number">#00{pokemon.id}</span> 
                 </div>
-                {/* <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png" alt="pokemon"/> */}
-
             </div>
             <div className="second">
-                <CardDescription/>
+                <CardDescription pokemon={pokemon}/>
             </div>
         </div>
     )

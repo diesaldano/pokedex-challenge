@@ -1,11 +1,21 @@
 import React from "react";
 import "./CardList.css";
+import Header from '../../components/Header';
+import SearchPokemon from '../../components/SearchPokemon';
+import CardItem from '../../components/CardItem';
+
 
 function CardList(props){
 	return (
-		<div className="grid-layout">
-			{props.children}
-		</div>
+		<div style={{ padding: '10px' }}>
+        <Header />
+        <SearchPokemon />
+        <main>
+			<div className="grid-layout">
+				<CardItem/>
+			</div>
+        </main>
+      </div> 
 	)
 }
 

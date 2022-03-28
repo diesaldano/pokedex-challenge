@@ -1,6 +1,6 @@
 import React from "react";
 import "./SearchPokemon.css";
-import { PokemonContext } from '../../Context/';
+import { PokemonContext } from '../../Context';
 
 
 function SearchPokemon(){
