@@ -1,30 +1,24 @@
 import React from 'react'
-import Header from '../../components/Header/Header';
-import SearchPokemon from '../../components/SearchPokemon/SearchPokemon';
 import CardList from '../CardList';
 import Details from '../Details'
-import CardItem from '../../components/CardItem';
+import {
+  BrowserRouter as Router,
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function AppUI(){
-  let isLoading = false;
-  let isError = false;
-
+  
   return(
     <div className="App">
-      { isLoading ? 
-      <div>
-        <Header />
-        <SearchPokemon />
-        <main>
-          <CardList>
-            <CardItem />
-          </CardList>
-        </main>
-      </div> 
-      : 
-          <Details/>
-        }
-        { isError ? <div>Error</div> : null }
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<CardList />} />
+          <Route path="/pokemon/:name" element={<Details />} />
+          <Route path="*" element={<h1>404 Not Found</h1>} />
+        </Routes>
+      </BrowserRouter>  
     </div>
   )
 }
