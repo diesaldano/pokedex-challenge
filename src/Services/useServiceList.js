@@ -1,8 +1,7 @@
 import React from 'react';
 
 function useServiceList(initialValue){
-    const [item, setItem] = React.useState(initialValue)
-	
+    const [item, setItem] = React.useState(initialValue)	
 	const colores = [
 		{type: 'rock', color: '#B69E31'},
 		{type: 'Ghost', color: '#70559B'},
@@ -26,32 +25,31 @@ function useServiceList(initialValue){
 	]
 
 	React.useEffect(() => {
-		const fetchData = async () => {
-			const res = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=60')
-			const data = await res.json()
-			let results = data.results;
-			let promisesArray = results.map(async (item) => {
-				const res = await fetch(item.url)
-				const data = await res.json()
-				return data				
-			})
-			const pokeData = await Promise.all(promisesArray)
-			let addColor = pokeData.map(item => {
-				item.types.map(type => {
-					colores.find(color => {
-						if(type.type.name === color.type.toLocaleLowerCase() 
-							&& type.slot === 1){
-								item.color = color.color
-						}
-					})
-				})
-				return item
-			})
-			setItem(addColor)
-			console.log(addColor)
-		}
 		try {
-			setTimeout(fetchData(), 1000)
+			const fetchData = async () => {
+				const res = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=60')
+				const data = await res.json()
+				let results = data.results;
+				let promisesArray = results.map(async (item) => {
+					const res = await fetch(item.url)
+					const data = await res.json()
+					return data				
+				})
+				const pokeData = await Promise.all(promisesArray)
+				let addColor = pokeData.map(item => {
+					item.types.map(type => {
+						colores.find(color => {
+							if(type.type.name === color.type.toLocaleLowerCase() 
+								&& type.slot === 1){
+									item.color = color.color
+							}
+						})
+					})
+					return item
+				})
+				setItem(addColor)
+			}
+			setTimeout( fetchData(), 1000)
 		} catch (error) {
 			console.log(error)
 		}
@@ -59,7 +57,8 @@ function useServiceList(initialValue){
 	}, [])
 
 	return {
-		item
+		item,
+		colores
 	}
     
 }

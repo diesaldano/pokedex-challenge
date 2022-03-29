@@ -1,30 +1,37 @@
-import React, {useState} from "react";
+import React from "react";
 import { useServiceList } from "../Services/useServiceList";
 
 const PokemonContext = React.createContext();
 
 function PokemonProvider(props) {
-    const [searchValue, setSearchValue] = useState('');
-    const {
-        item
+    const { 
+        item,
+        colores
     } = useServiceList([])
 
-    let searchedPokemon = [];
-    if(searchValue){
-        searchedPokemon = item
-    } else {
-        searchedPokemon = item.filter(item => {
-            let pokeName = item.name.toLocaleLowerCase()
-            const searchText = searchValue.toLowerCase();
-            return pokeName.includes(searchText);
-        })
-    }
 
+    const [searchValue, setSearchValue] = React.useState('');
+    const [selected, setSelectedPokemon] = React.useState({});
+    const [loading, setLoading] = React.useState(false);
+
+    let searchedPokemon = [];
+    searchedPokemon = item.filter(item => {
+        let pokeName = item.name.toLocaleLowerCase()
+        const searchText = searchValue.toLowerCase();
+        
+        return pokeName.includes(searchText);
+    });
+    
     return (
         <PokemonContext.Provider value={{ 
             searchedPokemon,
             searchValue,
-            setSearchValue
+            setSearchValue,
+            selected,
+            setSelectedPokemon,
+            loading,
+            setLoading,
+            colores
         }}>
             {props.children}
         </PokemonContext.Provider> 
