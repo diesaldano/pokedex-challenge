@@ -9,15 +9,12 @@ function SearchPokemon(){
         setSearchValue(e.target.value);
     }
     return (
-        <div>
-            <input className="search-pokemon" 
-                value={searchValue} 
-                onChange={onSearchChange} 
-                type="text" 
-                placeholder="Search Pokemon" 
-            />
-            <p>{searchValue}</p>
-        </div>
+        <input className="search-pokemon" 
+            value={searchValue} 
+            onChange={onSearchChange} 
+            type="text" 
+            placeholder="Search Pokemon" 
+        />
     )
 }
 
