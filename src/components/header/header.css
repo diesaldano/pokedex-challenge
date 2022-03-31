@@ -5,10 +5,12 @@
     font-weight: bold;
     font-size: 32px;
     display: flex;
-    justify-content: flex-start;
+    flex-direction: row;
+    justify-content: space-between;
     align-items: center;
     padding: 1em 0em;
     color: #212121
+
 }
 
 .logo {

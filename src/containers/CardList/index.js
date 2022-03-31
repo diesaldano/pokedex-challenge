@@ -3,15 +3,9 @@ import "./CardList.css";
 import Header from '../../components/Header';
 import SearchPokemon from '../../components/SearchPokemon';
 import CardItem from '../../components/CardItem';
-import { PokemonContext } from "../../Context/index";
-
 
 function CardList(){
-	const {
-		loading,
-		setLoading,
-	} = React.useContext(PokemonContext);
-	
+
 	return (
 		<div style={{ padding: '10px' }}>
         <Header />

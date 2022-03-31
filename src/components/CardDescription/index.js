@@ -3,7 +3,7 @@ import './CardDescription.css';
 import { PokemonContext } from '../../Context/index';
 import { BsClipboardPlus } from 'react-icons/bs';
 import  {BiRuler } from 'react-icons/bi';
-import BaseStats from '../baseStats';
+import BaseStats from '../BaseStats';
 import Types from '../Types';
 
 function CardDescription(props){ 

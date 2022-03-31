@@ -1,0 +1,10 @@
+.sort{
+    cursor: pointer;
+}
+
+.sort:hover {
+    transform: scale(.9);
+    transition: all .2s ease-in-out;
+}
+
+  
