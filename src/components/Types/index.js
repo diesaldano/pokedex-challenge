@@ -7,7 +7,6 @@ function Types(props){
         selected,
         colores
     } = React.useContext(PokemonContext);
-    console.log(colores, 'types')
 
     return (
         <div className="types" >

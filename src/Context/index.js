@@ -23,7 +23,6 @@ function PokemonProvider(props) {
     }, [item])
 
     const sort = (property) => {
-        console.log(property)
         setLoading(true)
         setSortedByName(SortedByName => !SortedByName)
         let dataSorted = [...searchedPokemon].sort((a, b) => {
