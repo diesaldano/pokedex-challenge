@@ -1,6 +1,6 @@
 import React from "react";
 import "./CardList.css";
-import Header from '../../components/Header';
+import Header from '../../components/Header/index';
 import SearchPokemon from '../../components/SearchPokemon';
 import CardItem from '../../components/CardItem';
 
