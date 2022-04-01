@@ -10,6 +10,7 @@ function CardDescription(props){
 
     const {
         selected,
+        colores,
         loading,
         setLoading
     } = React.useContext(PokemonContext);
@@ -18,7 +19,7 @@ function CardDescription(props){
         <div className="card-description">
             <div className="card-content">
                 <img className='photo-detail' src={selected.sprites.other.home.front_default} alt="pokemon"/>
-                <Types color={props.pokemon.color}/>
+                <Types selected={selected} colores={colores}/>
                 <span className='about' style={{ color: selected.color }}>About</span>
                 <div>
                     <div className='graphic-information'>
