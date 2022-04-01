@@ -1,11 +1,12 @@
 .container-pagination {
     position: absolute;
-    width: 98%;
+    width: calc(100% - 40px);
     height: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     top: 50%;
+    padding: 0px 10px;
 }
 
 .button-pagination {
@@ -15,6 +16,7 @@
     color: #6666663f;
     filter: drop-shadow(4px 3px 16px rgba(0,0,0,.4));
     cursor: pointer;
+    padding: 0px !important;
 }
 
 .button-pagination:hover {
@@ -45,4 +47,3 @@
               transform: translateZ(-400px);
     }
   }
-  

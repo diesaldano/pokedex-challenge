@@ -13,7 +13,6 @@ function Details() {
         loading,
 	} = React.useContext(PokemonContext);
 
-
 	let navigate = useNavigate();
 
     React.useEffect(() => { 

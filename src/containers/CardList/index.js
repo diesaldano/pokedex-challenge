@@ -8,7 +8,7 @@ import Pagination from "../../components/Pagination";
 function CardList(){
 
 	return (
-		<div style={{ padding: '10px' }}>
+		<div style={{ padding: '0px 10px' }}>
 			<Header />
 			<SearchPokemon />
 			<Pagination/>

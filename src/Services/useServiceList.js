@@ -29,7 +29,6 @@ function useServiceList(initialValue, currentPage, limit) {
 			const fetchData = async () => {
 				const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${currentPage}`)
 				const data = await res.json()
-				console.log(data, limit, currentPage)
 				let results = data.results;
 				let promisesArray = results.map(async (item) => {
 					const res = await fetch(item.url)
