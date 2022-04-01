@@ -28,6 +28,8 @@ function Details() {
         window.history.back();
     }
 
+    let name = selected.name.charAt(0).toUpperCase() + selected.name.slice(1);
+
     return(
         <div className="details-container" style={{ backgroundColor: selected.color }}>
             <div className="first">
@@ -36,7 +38,7 @@ function Details() {
                         <span className="icon" onClick={handleHistory}>
                             <BsArrowLeft/>
                         </span>
-                        <h5 className="tittle"> {selected.name}</h5>
+                        <h5 className="tittle"> {name}</h5>
                     </div>
                     <span className="number">#00{selected.id}</span> 
                 </div>

@@ -11,10 +11,9 @@ function CardDescription(props){
     const {
         selected,
         colores,
-        loading,
-        setLoading
     } = React.useContext(PokemonContext);
 
+    console.log(selected)
     return(
         <div className="card-description">
             <div className="card-content">
@@ -43,6 +42,7 @@ function CardDescription(props){
                         </div>
                     </div>
                     <p className='pragraph-info'>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently </p>
+                    <span className="title-base-state" style={{ color: props.pokemon.color}} >Base stats</span>        
                     <BaseStats color={props.pokemon.color} stats={props.pokemon.stats}/>
                 </div>
             </div>

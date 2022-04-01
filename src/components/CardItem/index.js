@@ -21,6 +21,8 @@ function CardList() {
 		navigate(location);
 	}
 
+    //pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1);
+
 	return (
 		<>
 			{

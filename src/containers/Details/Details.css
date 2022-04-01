@@ -61,16 +61,16 @@
 
 .tittle {
     font-size: 1em;
-    font-weight: 500;
+    font-weight: 600;
     padding-left: .4em;
     
 }
 
 .icon {
-    width: 30px;
-    height: 30px;
-    font-weight: 300;
-    font-size: .8em;
+    width: 1em;
+    height: 1em;
+    font-weight: 500;
+    font-size: 1em;
     display: flex;
     align-items: center;
     justify-content: center;
