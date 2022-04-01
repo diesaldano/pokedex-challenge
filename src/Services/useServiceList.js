@@ -1,6 +1,6 @@
 import React from 'react';
 
-function useServiceList(initialValue){
+function useServiceList(initialValue, currentPage, limit) {
     const [item, setItem] = React.useState(initialValue)	
 	const colores = [
 		{type: 'rock', color: '#B69E31'},
@@ -27,8 +27,9 @@ function useServiceList(initialValue){
 	React.useEffect(() => {
 		try {
 			const fetchData = async () => {
-				const res = await fetch('https://pokeapi.co/api/v2/pokemon/?limit=60')
+				const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${currentPage}`)
 				const data = await res.json()
+				console.log(data, limit, currentPage)
 				let results = data.results;
 				let promisesArray = results.map(async (item) => {
 					const res = await fetch(item.url)
@@ -54,7 +55,7 @@ function useServiceList(initialValue){
 			console.log(error)
 		}
 			
-	}, [])
+	}, [currentPage])
 
 	return {
 		item,

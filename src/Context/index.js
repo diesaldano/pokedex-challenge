@@ -4,16 +4,18 @@ import { useServiceList } from "../Services/useServiceList";
 const PokemonContext = React.createContext();
 
 function PokemonProvider(props) {
-    const {
-        item,
-        colores
-    } = useServiceList([])
 
     const [searchValue, setSearchValue] = React.useState('');   
     const [searchedPokemon, setSearchedPokemon] = React.useState([]);
     const [selected, setSelectedPokemon] = React.useState({});
     const [loading, setLoading] = React.useState(false);
     const [SortedByName, setSortedByName ] = React.useState(false)
+    const [ limit, setLimit] = React.useState(5)
+    const [ currentPage, setCurrentPage] = React.useState(0)
+    const {
+        item,
+        colores
+    } = useServiceList([], currentPage, limit);
 
     useEffect(()=> {
         const onChargeData = () => {
@@ -22,6 +24,20 @@ function PokemonProvider(props) {
         onChargeData()
     }, [item])
 
+    
+    useEffect(() => {
+        setLoading(true);
+        let data = item.filter(item => {
+            let pokeName = item.name.toLocaleLowerCase()
+            const searchText = searchValue.toLowerCase();
+            return pokeName.includes(searchText);
+        });
+        setSearchedPokemon(data);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+    }, [searchValue]);
+    
     const sort = (property) => {
         setLoading(true)
         setSortedByName(SortedByName => !SortedByName)
@@ -36,19 +52,23 @@ function PokemonProvider(props) {
         setSearchedPokemon(dataSorted);
         return dataSorted
     }
-    
-  useEffect(() => {
+
+    const onPrevious = () => {
         setLoading(true);
-        let data = item.filter(item => {
-            let pokeName = item.name.toLocaleLowerCase()
-            const searchText = searchValue.toLowerCase();
-            return pokeName.includes(searchText);
-        });
-        setSearchedPokemon(data);
+        setCurrentPage(currentPage => currentPage - 5)
         setTimeout(() => {
             setLoading(false);
         }, 1000);
-    }, [searchValue]);
+    }
+
+    const onNext = () => {
+        setLoading(true);
+        setCurrentPage(currentPage => currentPage + 5)
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+    }
+
 
     return (
         <PokemonContext.Provider value={{
@@ -61,7 +81,10 @@ function PokemonProvider(props) {
             setLoading,
             sort,
             SortedByName,
-            colores
+            colores,
+            currentPage,
+            onPrevious,
+            onNext,
         }}>
             {props.children}
         </PokemonContext.Provider>
