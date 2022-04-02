@@ -9,6 +9,7 @@ function BaseStats(props){
                 props.stats.map(stat => 
                     <div className="stats-grid" key={stat.stat.name}>
                         <span className="stats-title">{stat.stat.name.slice(0, 3)}</span>
+                        {/* <span className='separator'></span> */}
                         <span className="stats-number">{stat.base_stat}</span>
                         <span className="stats-graphic" >
                             <span className="stats-mark" 

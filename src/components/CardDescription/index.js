@@ -7,7 +7,6 @@ import BaseStats from '../BaseStats';
 import Types from '../Types';
 
 function CardDescription(props){ 
-
     const {
         selected,
         colores,

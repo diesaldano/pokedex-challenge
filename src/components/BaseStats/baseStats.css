@@ -2,15 +2,14 @@
     margin: auto;
     padding: 0em 2em;
     width: auto;
-
 }
 
 .stats-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(1, 1fr);
-    grid-column-gap: 5px;
-    grid-row-gap: 5px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
     line-height: 1.5;
     width: 100%;
     margin: auto;
@@ -24,9 +23,11 @@
 
 .stats-number {
     font-size: .6em;
-    font-weight: 200;
+    font-weight: 500;
     color: #212121;
     width: auto;
+    border-left: 1px solid #D3D3D3;
+    height: 100% !important;
 }
 
 span.stats-graphic{
@@ -62,6 +63,22 @@ span.stats-graphic{
 }
 
 /** media query */
-@media screen and (max-width: 600px) {
+@media screen and (min-width: 601px) {
+    .stats-title {
+        font-size: .8em;
+    }
 
+    .stats-number {
+        font-size: .8em;
+    }
+
+    span.stats-graphic{ 
+        width: 70vw;
+        height: 7px;
+
+    }
+
+    .background-stats {
+        top: -7px;
+    }
 }

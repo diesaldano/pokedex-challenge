@@ -9,8 +9,8 @@ function Types(props){
             }
             return color
         })
+        type.type.name = type.type.name.charAt(0).toUpperCase() + type.type.name.slice(1);
     })
-
     return (
         <div className="types" >
             {Array.isArray(props.selected.types) && props.selected.types.map(type =>       
