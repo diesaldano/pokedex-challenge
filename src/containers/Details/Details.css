@@ -76,3 +76,11 @@
     justify-content: center;
     cursor: pointer;
 }
+
+/* responsive  */
+@media screen and (min-width: 769px) {
+    .details-container {
+        width: 375px;
+        height: 538px;
+    }
+}

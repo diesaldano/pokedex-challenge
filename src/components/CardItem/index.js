@@ -9,16 +9,18 @@ function CardList() {
 		searchedPokemon,
 		setSelectedPokemon,
 		loading,
+		setOpenModal,
 	} = React.useContext(PokemonContext);
 
 	let navigate = useNavigate();
 
 	const onClickCard = (pokemon) => {
+		setOpenModal(true);
 		const location = {
 			pathname: `/pokemon/${pokemon.name}`,
 		}
 		setSelectedPokemon(pokemon);
-		navigate(location);
+		// navigate(location);
 	}
 
 	searchedPokemon.map(pokemon => {

@@ -12,6 +12,8 @@ function PokemonProvider(props) {
     const [SortedByName, setSortedByName ] = React.useState(false)
     const [ limit, setLimit] = React.useState(251)
     const [ currentPage, setCurrentPage] = React.useState(0)
+    const [openModal, setOpenModal] = React.useState(false);
+
     const {
         item,
         colores
@@ -85,6 +87,8 @@ function PokemonProvider(props) {
             currentPage,
             onPrevious,
             onNext,
+            openModal,
+            setOpenModal,
         }}>
             {props.children}
         </PokemonContext.Provider>

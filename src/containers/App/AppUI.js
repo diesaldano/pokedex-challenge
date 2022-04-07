@@ -7,6 +7,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+import Modal from '../../components/Modal';
 
 function AppUI(){
   
@@ -15,7 +16,11 @@ function AppUI(){
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<CardList />} />
-          <Route path="/pokemon/:name" element={<Details />} />
+          {/* <Route path="/pokemon/:name" element={
+            <Modal>
+              <Details />
+            </Modal>} 
+          /> */}
           <Route path="*" element={<h1>404 Not Found</h1>} />
         </Routes>
       </BrowserRouter>  

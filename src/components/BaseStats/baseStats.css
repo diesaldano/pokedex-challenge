@@ -31,7 +31,7 @@
 }
 
 span.stats-graphic{
-    width: 60vw;
+    width: 15vw;
     height: 5px;
     margin: auto;
     padding: 0;
@@ -63,7 +63,7 @@ span.stats-graphic{
 }
 
 /** media query */
-@media screen and (min-width: 601px) {
+/* @media screen and (min-width: 601px) {
     .stats-title {
         font-size: .8em;
     }
@@ -81,4 +81,4 @@ span.stats-graphic{
     .background-stats {
         top: -7px;
     }
-}
+} */

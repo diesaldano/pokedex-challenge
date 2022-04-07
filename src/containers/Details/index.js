@@ -11,6 +11,7 @@ function Details() {
 		searchedPokemon,
         selected,
         loading,
+        setOpenModal,
 	} = React.useContext(PokemonContext);
 
 	let navigate = useNavigate();
@@ -25,7 +26,8 @@ function Details() {
     }, [searchedPokemon, loading])
 
     const handleHistory = () => {
-        window.history.back();
+        setOpenModal(false);
+        window.history('/');
     }
 
     let name = selected.name.charAt(0).toUpperCase() + selected.name.slice(1);

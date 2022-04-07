@@ -19,7 +19,7 @@ function CardDescription(props){
                 <img className='photo-detail' src={selected.sprites.other.home.front_default} alt="pokemon"/>
                 <Types selected={selected} colores={colores}/>
                 <span className='about' style={{ color: selected.color }}>About</span>
-                <div>
+                <div style={ {textAlign: 'center'} }>
                     <div className='graphic-information'>
                         <div className='box-info'>
                             <span className='power-description'>
