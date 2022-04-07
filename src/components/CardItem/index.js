@@ -33,7 +33,7 @@ function CardList() {
 				))
 			}
 			{
-				!loading && searchedPokemon.map(pokemon => (
+				!loading && searchedPokemon.slice(0,5).map(pokemon => (
 					<div className="card-item-content" onClick={ () => onClickCard(pokemon) }
 						style={{ borderColor: pokemon.color }}  key={pokemon.name}>
 						<div className="card-item-content-image">

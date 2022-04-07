@@ -1,7 +1,9 @@
 import React from 'react';
+import axios from 'axios';
 
 function useServiceList(initialValue, currentPage, limit) {
     const [item, setItem] = React.useState(initialValue)	
+    const [total, setTotal] = React.useState([])	
 	const colores = [
 		{type: 'rock', color: '#B69E31'},
 		{type: 'Ghost', color: '#70559B'},
@@ -27,13 +29,10 @@ function useServiceList(initialValue, currentPage, limit) {
 	React.useEffect(() => {
 		try {
 			const fetchData = async () => {
-				const res = await fetch(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${currentPage}`)
-				const data = await res.json()
-				let results = data.results;
-				let promisesArray = results.map(async (item) => {
-					const res = await fetch(item.url)
-					const data = await res.json()
-					return data				
+				const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/?limit=${limit}&offset=${currentPage}`)
+				let promisesArray = res.data.results.map(async (item) => {
+					const res = await axios.get(item.url)
+					return res.data				
 				})
 				const pokeData = await Promise.all(promisesArray)
 				let addColor = pokeData.map(item => {
@@ -49,12 +48,18 @@ function useServiceList(initialValue, currentPage, limit) {
 				})
 				setItem(addColor)
 			}
-			setTimeout( fetchData(), 1000)
+			setTimeout(fetchData(), 1000)
 		} catch (error) {
 			console.log(error)
 		}
 			
 	}, [currentPage])
+
+	// React.useEffect(() => {
+	// 	const total = () => {
+		
+	// 	}
+	// })
 
 	return {
 		item,

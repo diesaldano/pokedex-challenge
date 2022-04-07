@@ -16,10 +16,25 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     
     <title>Pokedex</title>
+    <style>
+      .root::-webkit-scrollbar {
+        width: 12px;               /* width of the entire scrollbar */
+      }
+
+      .root::-webkit-scrollbar-track {
+        background: orange;        /* color of the tracking area */
+      }
+
+      .root::-webkit-scrollbar-thumb {
+        background-color: blue !important ; /* color of the scroll thumb */
+        border-radius: 20px;       /* roundness of the scroll thumb */
+        border: 3px solid orange;  /* creates padding around scroll thumb */
+      }
+    </style>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+    <div class="root" id="root"></div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.

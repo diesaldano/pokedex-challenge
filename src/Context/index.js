@@ -10,7 +10,7 @@ function PokemonProvider(props) {
     const [selected, setSelectedPokemon] = React.useState({});
     const [loading, setLoading] = React.useState(false);
     const [SortedByName, setSortedByName ] = React.useState(false)
-    const [ limit, setLimit] = React.useState(5)
+    const [ limit, setLimit] = React.useState(251)
     const [ currentPage, setCurrentPage] = React.useState(0)
     const {
         item,
@@ -35,7 +35,7 @@ function PokemonProvider(props) {
         setSearchedPokemon(data);
         setTimeout(() => {
             setLoading(false);
-        }, 1000);
+        }, 3000);
     }, [searchValue]);
     
     const sort = (property) => {
@@ -48,7 +48,7 @@ function PokemonProvider(props) {
         })
         setTimeout(() => {
             setLoading(false)
-        }, 1000);
+        }, 3000);
         setSearchedPokemon(dataSorted);
         return dataSorted
     }
@@ -58,7 +58,7 @@ function PokemonProvider(props) {
         setCurrentPage(currentPage => currentPage - 5)
         setTimeout(() => {
             setLoading(false);
-        }, 1000);
+        }, 3000);
     }
 
     const onNext = () => {
@@ -66,7 +66,7 @@ function PokemonProvider(props) {
         setCurrentPage(currentPage => currentPage + 5)
         setTimeout(() => {
             setLoading(false);
-        }, 1000);
+        }, 3000);
     }
 
 
