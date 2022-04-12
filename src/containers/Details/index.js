@@ -27,7 +27,6 @@ function Details() {
 
     const handleHistory = () => {
         setOpenModal(false);
-        window.history('/');
     }
 
     let name = selected.name.charAt(0).toUpperCase() + selected.name.slice(1);

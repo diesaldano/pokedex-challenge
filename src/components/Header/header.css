@@ -18,3 +18,9 @@
     pointer-events: none;
     padding-right: .5em;
 }
+
+.buttons-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}

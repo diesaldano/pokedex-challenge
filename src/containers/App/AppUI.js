@@ -7,7 +7,7 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Modal from '../../components/Modal';
+// import Modal from '../../components/Modal';
 
 function AppUI(){
   

@@ -1,9 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
-function useServiceList(initialValue, currentPage, limit) {
+function useServiceList(initialValue, currentPage, limit, selectLenguage) {
     const [item, setItem] = React.useState(initialValue)	
-    const [total, setTotal] = React.useState([])	
 	const colores = [
 		{type: 'rock', color: '#B69E31'},
 		{type: 'Ghost', color: '#70559B'},
@@ -35,7 +34,16 @@ function useServiceList(initialValue, currentPage, limit) {
 					return res.data				
 				})
 				const pokeData = await Promise.all(promisesArray)
-				let addColor = pokeData.map(item => {
+				const promisesArrayLenguage = pokeData.map(async (item) => {
+					const res = await axios.get(`https://pokeapi.co/api/v2/pokemon-species/${item.id}/`)
+					const lenguage = res.data.flavor_text_entries.find(item => item.language.name === selectLenguage)
+					item.description = lenguage.flavor_text
+					const name = res.data.names.find(item => item.language.name === selectLenguage)
+					item.name = name.name
+					return item
+				})
+				const pokeDataLenguage = await Promise.all(promisesArrayLenguage)
+				let addColor = pokeDataLenguage.map(item => {
 					item.types.map(type => {
 						colores.find(color => {
 							if(type.type.name === color.type.toLocaleLowerCase() 
@@ -53,13 +61,7 @@ function useServiceList(initialValue, currentPage, limit) {
 			console.log(error)
 		}
 			
-	}, [currentPage])
-
-	// React.useEffect(() => {
-	// 	const total = () => {
-		
-	// 	}
-	// })
+	}, [currentPage, selectLenguage])
 
 	return {
 		item,

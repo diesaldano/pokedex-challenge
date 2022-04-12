@@ -13,18 +13,19 @@ function PokemonProvider(props) {
     const [ limit, setLimit] = React.useState(251)
     const [ currentPage, setCurrentPage] = React.useState(0)
     const [openModal, setOpenModal] = React.useState(false);
+    const [selectLenguage, setSelectLenguage] = React.useState('ko');
 
     const {
         item,
         colores
-    } = useServiceList([], currentPage, limit);
+    } = useServiceList([], currentPage, limit, selectLenguage);
 
     useEffect(()=> {
         const onChargeData = () => {
             setSearchedPokemon([...item])
         }
         onChargeData()
-    }, [item])
+    }, [item, selectLenguage])
 
     
     useEffect(() => {
@@ -71,6 +72,14 @@ function PokemonProvider(props) {
         }, 3000);
     }
 
+    const onTranslate = (value) => {
+        setLoading(true);
+        setSelectLenguage(value);
+        setTimeout(() => {
+            setLoading(false);
+        }, 3000);
+    }
+
 
     return (
         <PokemonContext.Provider value={{
@@ -89,6 +98,9 @@ function PokemonProvider(props) {
             onNext,
             openModal,
             setOpenModal,
+            onTranslate,
+            selectLenguage, 
+            setSelectLenguage
         }}>
             {props.children}
         </PokemonContext.Provider>

@@ -13,6 +13,8 @@ function CardDescription(props){
     } = React.useContext(PokemonContext);
 
     console.log(selected)
+    const Height = selected.height / 10 + ' m';
+    const Weight = selected.weight / 10 + ' kg';
     return(
         <div className="card-description">
             <div className="card-content">
@@ -23,13 +25,13 @@ function CardDescription(props){
                     <div className='graphic-information'>
                         <div className='box-info'>
                             <span className='power-description'>
-                                <BsClipboardPlus/> {selected.weight} kg
+                                <BsClipboardPlus/> {Weight}
                             </span>
                             <span className='box-title'>Weight</span>
                         </div>
                         <span className='separator'></span>
                         <div className='box-info'>
-                            <span className='power-description'><BiRuler/> {selected.height} m</span>
+                            <span className='power-description'><BiRuler/> {Height}</span>
                             <span className='box-title'>Heigth</span>
                         </div>
                         <span className='separator'></span>
@@ -40,7 +42,7 @@ function CardDescription(props){
                             <span className='box-title'>Moves</span>
                         </div>
                     </div>
-                    <p className='pragraph-info'>It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently </p>
+                    <p className='pragraph-info'>{selected.description}</p>
                     <span className="title-base-state" style={{ color: props.pokemon.color}} >Base stats</span>        
                     <BaseStats color={props.pokemon.color} stats={props.pokemon.stats}/>
                 </div>

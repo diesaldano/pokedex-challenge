@@ -1,5 +1,7 @@
 .sort{
     cursor: pointer;
+    height: 40px;
+    padding-left: 10px;
 }
 
 .sort:hover {
