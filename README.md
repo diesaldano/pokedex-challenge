@@ -2,7 +2,6 @@
 Pokedex app challenge is a project created with React and their ecosystem. 
 Tools used such as: react functional, components and containers, react-icons, react hooks, hooks customize, css flex and grid, mobile first and react context.
 This project is presented for the Zarego company, a technology agency that specializes in software. 
-For more information you can visit ´´www.https://www.zarego.com/´´.
 
 ## Requirements:
 The ui/ux interface is in Figma:
